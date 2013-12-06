@@ -22,11 +22,15 @@ var text = fs.readFile('./IsingTheBodyElectric.txt', {"encoding":"utf8"}, functi
 });
 
 var length = lines.length;
-var count = 0;
+var count = 1;
 var times = new schedule.RecurrenceRule();
 times.hour = new schedule.Range(6,17);
 times.minute = 0;
 
 var tweets = schedule.scheduleJob(times, function () {
-    tweet(lines[count]);
+    if (count < length) {
+        tweet[count++];
+    } else {
+        tweet[count = 0];
+    }
 });
