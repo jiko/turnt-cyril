@@ -42,7 +42,7 @@ var app = express();
 app.use(express.logger());
 
 app.get('/', function(request, response) {
-    response.send('I sing the body electric,');
+    response.send("I Sing the Body Electric by Walt Whitman\n"+lines.join("\n"));
 });
 
 var port = process.env.PORT || 3000;
