@@ -1,17 +1,18 @@
 {
   "name": "ISingTheBodyElectric",
   "description": "Tweets Walt Whitman's I Sing the Body Electric, line-by-line",
-  "main": "istbe-lbl.js",
-  "version": "0.0.1",
+  "main": "index.js",
+  "version": "0.0.2",
   "author": {
     "name": "James Koppen",
     "email": "jk@jameskoppen.com"
   },
   "dependencies": {
     "twit": "~1.1.9",
-    "node-schedule": "~0.1.13"
+    "node-schedule": "~0.1.13",
+    "express": "~3.3.4"
   },
-  "license": "MIT",
+  "license": "BSD",
   "engines": {
     "node": "0.10.x"
   }

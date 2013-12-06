@@ -1,1 +1,2 @@
-worker: node istbe-lbl.js
+web: node index.js
+worker: node tweeter.js
