@@ -45,7 +45,7 @@ app.get('/', function(request, response) {
     response.send("I Sing the Body Electric by Walt Whitman\n"+lines.join("\n"));
 });
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 5000;
 app.listen(port, function() {
     console.log("Listening on " + port);
 });
