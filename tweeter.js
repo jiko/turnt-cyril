@@ -3,12 +3,7 @@
 var fs = require('fs');
 var schedule = require('node-schedule');
 var Twit = require('twit');
-var T = new Twit({
-  consumer_key: process.env.CONSUMER_KEY,
-  consumer_secret: process.env.CONSUMER_SECRET,
-  access_token: process.env.ACCESS_TOKEN,
-  access_token_secret: process.env.ACCESS_TOKEN_SECRET  
-});
+var T = new Twit(require('./config.js'));
 
 function tweet(text) {
     T.post('statuses/update', { status: text }, function(err, reply) {
