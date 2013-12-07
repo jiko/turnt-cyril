@@ -8,9 +8,7 @@
     "email": "jk@jameskoppen.com"
   },
   "dependencies": {
-    "twit": "~1.1.9",
-    "node-schedule": "~0.1.13",
-    "express": "~3.3.4"
+    "twit": "~1.1.9"
   },
   "license": "BSD",
   "engines": {
