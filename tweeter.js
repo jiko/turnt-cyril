@@ -20,7 +20,7 @@ function sing(tweets, index) {
         tweet(tweets[index++]);
         //console.log(tweets[index++]);
         sing(tweets, index);
-    }, 1000 * 1);
+    }, 1000 * 60 * 60);
 }
 
 var text = fs.readFile('./IsingTheBodyElectric.txt', {"encoding":"utf8"}, function (err, data) {
