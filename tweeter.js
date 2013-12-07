@@ -1,7 +1,6 @@
 // it's fukcing node yall
 
 var fs = require('fs');
-var schedule = require('node-schedule');
 var Twit = require('twit');
 var T = new Twit(require('./config.js'));
 
@@ -15,22 +14,18 @@ function tweet(text) {
     });
 }
 
-var lines = [];
+function sing(tweets, index) {
+    setTimeout(function () {
+        if (index === tweets.length) index = 0;
+        //tweet(tweets[index++]);
+        console.log(tweets[index++]);
+        sing(tweets, index);
+    }, 1000 * 1);
+}
+
 var text = fs.readFile('./IsingTheBodyElectric.txt', {"encoding":"utf8"}, function (err, data) {
     if (err) throw err;
-    lines = data.split("\n");
-});
-
-var length = lines.length;
-var count = 1;
-var times = new schedule.RecurrenceRule();
-times.hour = new schedule.Range(6,17);
-times.minute = 0;
-
-var tweets = schedule.scheduleJob(times, function () {
-    if (count < length) {
-        tweet[count++];
-    } else {
-        tweet[count = 0];
-    }
+    var lines = data.split("\n");
+    var count = 1;
+    sing(lines, count);
 });
