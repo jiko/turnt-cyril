@@ -17,8 +17,8 @@ function tweet(text) {
 function sing(tweets, index) {
     setTimeout(function () {
         if (index === tweets.length) index = 0;
-        //tweet(tweets[index++]);
-        console.log(tweets[index++]);
+        tweet(tweets[index++]);
+        //console.log(tweets[index++]);
         sing(tweets, index);
     }, 1000 * 1);
 }
