@@ -16,7 +16,8 @@ function tweet(text) {
 
 function sing(tweets, index) {
     setTimeout(function () {
-        if (index === tweets.length) index = 0;
+        if (index === tweets.length)
+            index = 0;
         tweet(tweets[index++]);
         //console.log(tweets[index++]);
         sing(tweets, index);
@@ -26,6 +27,6 @@ function sing(tweets, index) {
 var text = fs.readFile('./IsingTheBodyElectric.txt', {"encoding":"utf8"}, function (err, data) {
     if (err) throw err;
     var lines = data.split("\n");
-    var count = 1;
+    var count = 0;
     sing(lines, count);
 });
