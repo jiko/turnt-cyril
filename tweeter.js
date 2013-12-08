@@ -4,6 +4,7 @@ var fs = require('fs');
 var Twit = require('twit');
 var T = new Twit(require('./config.js'));
 var start = 0;
+var interval = 1000 * 60 * 60;
 
 function tweet(text) {
     T.post('statuses/update', { status: text }, function(err, reply) {
@@ -21,7 +22,7 @@ function sing(tweets, index) {
             index = 0;
         tweet(tweets[index++]);
         sing(tweets, index);
-    }, 1000 * 60 * 60);
+    }, interval);
 }
 
 var text = fs.readFile('./IsingTheBodyElectric.txt', {"encoding":"utf8"}, function (err, data) {
