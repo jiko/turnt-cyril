@@ -5,6 +5,7 @@ var Twit = require('twit');
 var T = new Twit(require('./config.js'));
 var start = 0;
 var interval = 1000 * 60 * 60;
+var lines;
 
 function tweet(text) {
     T.post('statuses/update', { status: text }, function(err, reply) {
@@ -16,17 +17,17 @@ function tweet(text) {
     });
 }
 
-function sing(tweets, index) {
+function sing(index) {
     setTimeout(function () {
-        if (index === tweets.length)
+        if (index === lines.length)
             index = 0;
-        tweet(tweets[index++]);
-        sing(tweets, index);
+        tweet(lines[index++]);
+        sing(index);
     }, interval);
 }
 
 var text = fs.readFile('./IsingTheBodyElectric.txt', {"encoding":"utf8"}, function (err, data) {
     if (err) throw err;
-    var lines = data.split("\n");
-    sing(lines, start);
+    lines = data.split("\n");
+    sing(start);
 });
